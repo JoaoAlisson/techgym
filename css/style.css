@@ -1,0 +1,95 @@
+.table>tbody>tr>td.danger, .table>tbody>tr>th.danger, .table>tbody>tr.danger>td, .table>tbody>tr.danger>th{
+	background-color: #f89290;
+	color: #ac2825;
+}
+
+.success{
+	color:#498447;
+}
+
+.table-hover>tbody>tr>td.danger:hover, .table-hover>tbody>tr>th.danger:hover, .table-hover>tbody>tr.danger:hover>td, .table-hover>tbody>tr.danger:hover>th{
+	background-color: #f6817e;
+}
+
+.brown{
+	color:#fff;
+	
+}
+
+.topo{
+	background-color: #d1cccc;
+	margin-top: 2%;
+}
+
+th{
+	color:#333;
+}
+
+tr{
+	color: #357ebd;
+}
+
+input.aluno {
+	background-color: transparent;
+    border: 0px; 
+    width: 100%;
+    height: 100%;
+}
+
+input.inputPersonal {
+	background-color: transparent;
+    border: 0px; 
+    width: 100%;
+    height: 40px;
+}
+
+.fixo{
+	width: 85px; 
+}
+
+@media (min-width: @screen-sm) {
+   .fixo2{
+		margin-bottom: 4px;
+	}		
+}
+
+.fixo2{
+	margin-right: 4px;
+}
+
+.pag{
+	margin-top: 40px;
+}
+
+.tituloTopo{
+	font: normal 200%/200% Oswald;
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 0.2%;
+}
+
+.personal{
+	color: #357ebd;
+}
+
+.mensagemBottom{
+    margin-top: 0.5%;
+}
+
+ body {
+
+ 	background-image: url("/img/fundo.png");
+ 	background-repeat: repeat-x repeat-y;
+ 	padding-bottom:  0%;
+ 
+ }
+
+.rodape {
+	font-size: 12px;
+    text-align: center;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+}
