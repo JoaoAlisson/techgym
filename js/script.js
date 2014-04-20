@@ -3,6 +3,18 @@ var contTabela = 1;
 var contFinalizados = 1;
 $(document).ready(function(){ 
 	//$("#nome1").tooltip();
+
+	$("#inicial").fadeIn();
+	  setTimeout(function(){
+		 	//alert("teste");
+	     	//$(window.document.location).attr('href', './acomanhamento.html');
+	     	//$("#bodi").load("./acomanhamento.html");
+	     	$("#inicial").fadeOut();
+	     	$('body').css('background', '#fff');
+	     	$("#pagina").fadeIn();
+	  }, 4000);
+
+
 	$("#mudarInstrutor").click(function(){
 
 		
