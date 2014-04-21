@@ -32,7 +32,7 @@ $(document).ready(function(){
 			}
 
 		}else{
-			alert($("#selecionarAluno").val());
+			//alert($("#selecionarAluno").val());
 			idLinha = $("#selecionarAluno").val();
 			tabela = $("#selecionarInstrutor").val();
 			nome = $("#nome"+$("#selecionarAluno").val()).val();
