@@ -2,8 +2,8 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
 $(document).ready(function(){ 
-	//$("#nome1").tooltip();
 
+	//$("#nome1").tooltip();
 	$("#inicial").fadeIn();
 	  setTimeout(function(){
 		 	//alert("teste");
@@ -12,79 +12,96 @@ $(document).ready(function(){
 	     	$("#inicial").fadeOut();
 	     	$('body').css('background', '#fff');
 	     	$("#pagina").fadeIn();
-	  }, 4000);
-
+	}, 4000);
 
 	$("#mudarInstrutor").click(function(){
-
 		
-		idLinha = $("#selecionarAluno").val();
-		tabela = $("#selecionarInstrutor").val();
-		nome = $("#nome"+$("#selecionarAluno").val()).val();
-		horaInicial = $("#horaInicio"+$("#selecionarAluno").val()).val();
-		mostraIninial = $("#MostrarInicio"+$("#selecionarAluno").val()).html();
+		$("#alertaNome").slideUp(400);
+		$("#alertaInstrutor").slideUp(400);
 
-		var linha = "<tr id=\"linha"+ idLinha  +"\" style=\"Display:none\">"+
-							 			"<td><input class=\"aluno\" id=\"nome"+ idLinha +"\"  autofocus=\"autofocus\" placeholder=\"nome\" onkeyup=\"enterCampos(" + idLinha + ", " + tabela + ")\" value=\"" + nome + "\""+
-							 			" placeholder=\"nome\" data-placement=\"top\" data-trigger=\"manual\" data-title=\"<div style='text-align: center; color: #d9534f;'><strong >Campo obrigatório</strong></div>\"data-content=\"Insira o nome do aluno.\"/></td>"+
-							 			"<td id=\"MostrarInicio"+ idLinha +"\" style=\"vertical-align: middle;\"><input id=\"inicio"+ idLinha +"\" disabled=\"disabled\" style=\"Display:none;\" value=\"" + horaInicial + "\"/>"+ mostraIninial +"</td>"+
-							 			"<td id=\"MostrarFim"+ idLinha +"\" style=\"vertical-align: middle;\"><input id=\"fim"+ idLinha  +"\" disabled=\"disabled\" style=\"Display:none;\"/></td>"+
-							 			"<td>"+					
-					  					  "<button class=\"btn btn-success fixo2\" type=\"button\" onclick=\"inicio("+ idLinha +", "+ tabela +")\" id=\"btnIniciar"+ idLinha +"\" style=\"display:none\"><span class=\"glyphicon glyphicon-plus brown\"></span></button>"+
-	  				  					  "<button class=\"btn btn-primary fixo2\" type=\"button\" onclick=\"fim("+ idLinha  +", "+ tabela +")\" id=\"btnFim"+ idLinha  +"\" ><span class=\"glyphicon glyphicon-ok brown\"></span></button>"+
-									      "<button class=\"btn btn-danger remover\" onclick=\"confirma("+ idLinha +", false, this, "+ tabela +")\" id=\"excluir" + idLinha + "\"><span class=\"glyphicon glyphicon-remove brown\"></span></button>"+
-							 			"</td>"+					 			
-							 	"</tr>";
-		$("#myModal").modal('toggle');							 	
-		$.when($("#linha"+$("#selecionarAluno").val()).fadeOut()).done( function() {
-				$("#linha"+$("#selecionarAluno").val()).remove();
-				$("#tabela"+$("#selecionarInstrutor").val()).last().append(linha);
+		if($("#selecionarAluno").val() == null || $("#selecionarInstrutor").val() == null){
 
-				$("#nome"+$("#selecionarAluno").val()).val(nome);
-				var row = $("#linha"+ $("#selecionarAluno").val()).closest('tr');
-				row.insertBefore("#tabela"+ $("#selecionarInstrutor").val() +" .vazio");
-				$("#linha"+$("#selecionarAluno").val()).fadeIn();
+			if($("#selecionarInstrutor").val() == null){
+				$("#alertaInstrutor").slideDown(400);
+				$("#selecionarInstrutor").focus();
+			}
+
+			if($("#selecionarAluno").val() == null){
+				$("#alertaNome").slideDown(400);
+				$("#selecionarAluno").focus();
+			}
+
+		}else{
+			alert($("#selecionarAluno").val());
+			idLinha = $("#selecionarAluno").val();
+			tabela = $("#selecionarInstrutor").val();
+			nome = $("#nome"+$("#selecionarAluno").val()).val();
+			horaInicial = $("#horaInicio"+$("#selecionarAluno").val()).val();
+			mostraIninial = $("#MostrarInicio"+$("#selecionarAluno").val()).html();
+
+			var linha = "<tr id=\"linha"+ idLinha  +"\" style=\"Display:none\">"+
+								 			"<td><input class=\"aluno\" id=\"nome"+ idLinha +"\"  autofocus=\"autofocus\" placeholder=\"nome\" onkeyup=\"enterCampos(" + idLinha + ", " + tabela + ")\" value=\"" + nome + "\""+
+								 			" placeholder=\"nome\" data-placement=\"top\" data-trigger=\"manual\" data-title=\"<div style='text-align: center; color: #d9534f;'><strong >Campo obrigatório</strong></div>\"data-content=\"Insira o nome do aluno.\"/></td>"+
+								 			"<td id=\"MostrarInicio"+ idLinha +"\" style=\"vertical-align: middle;\"><input id=\"inicio"+ idLinha +"\" disabled=\"disabled\" style=\"Display:none;\" value=\"" + horaInicial + "\"/>"+ mostraIninial +"</td>"+
+								 			"<td id=\"MostrarFim"+ idLinha +"\" style=\"vertical-align: middle;\"><input id=\"fim"+ idLinha  +"\" disabled=\"disabled\" style=\"Display:none;\"/></td>"+
+								 			"<td>"+					
+						  					  "<button class=\"btn btn-success fixo2\" type=\"button\" onclick=\"inicio("+ idLinha +", "+ tabela +")\" id=\"btnIniciar"+ idLinha +"\" style=\"display:none\"><span class=\"glyphicon glyphicon-plus brown\"></span></button>"+
+		  				  					  "<button class=\"btn btn-primary fixo2\" type=\"button\" onclick=\"fim("+ idLinha  +", "+ tabela +")\" id=\"btnFim"+ idLinha  +"\" ><span class=\"glyphicon glyphicon-ok brown\"></span></button>"+
+										      "<button class=\"btn btn-danger remover\" onclick=\"confirma("+ idLinha +", false, this, "+ tabela +")\" id=\"excluir" + idLinha + "\"><span class=\"glyphicon glyphicon-remove brown\"></span></button>"+
+								 			"</td>"+					 			
+								 	"</tr>";
+
+			$("#myModal").modal('toggle');							 	
+			$.when($("#linha"+$("#selecionarAluno").val()).fadeOut()).done( function() {
+					$("#linha"+$("#selecionarAluno").val()).remove();
+					$("#tabela"+$("#selecionarInstrutor").val()).last().append(linha);
+
+					$("#nome"+$("#selecionarAluno").val()).val(nome);
+					var row = $("#linha"+ $("#selecionarAluno").val()).closest('tr');
+					row.insertBefore("#tabela"+ $("#selecionarInstrutor").val() +" .vazio");
+					$("#linha"+$("#selecionarAluno").val()).fadeIn();
 
 
-			antigaTabela = $("#modalTabela").val();
-				if($("#personalNome"+antigaTabela).val() != ""){
-					var qtd = parseInt($("#quantidadeAlunos"+antigaTabela).val());
-					$("#quantidadeAlunos"+antigaTabela).val(qtd-1);
-					val = $("#personalNome"+antigaTabela).val().split("(");
-					$("#personalNome"+antigaTabela).val(val[0] + "(" + $("#quantidadeAlunos"+antigaTabela).val() + ")");
+				antigaTabela = $("#modalTabela").val();
+					if($("#personalNome"+antigaTabela).val() != ""){
+						var qtd = parseInt($("#quantidadeAlunos"+antigaTabela).val());
+						$("#quantidadeAlunos"+antigaTabela).val(qtd-1);
+						val = $("#personalNome"+antigaTabela).val().split("(");
+						$("#personalNome"+antigaTabela).val(val[0] + "(" + $("#quantidadeAlunos"+antigaTabela).val() + ")");
 
-					nomeInstrutor = $("#menu"+antigaTabela).html().split("(");
-					nomeInstrutor = nomeInstrutor[0];
-					nomeInstrutor = nomeInstrutor + "(" + $("#quantidadeAlunos"+ antigaTabela).val() +")";
-					$("#menu"+antigaTabela).html(nomeInstrutor);	
+						nomeInstrutor = $("#menu"+antigaTabela).html().split("(");
+						nomeInstrutor = nomeInstrutor[0];
+						nomeInstrutor = nomeInstrutor + "(" + $("#quantidadeAlunos"+ antigaTabela).val() +")";
+						$("#menu"+antigaTabela).html(nomeInstrutor);	
 
-				}else{
-					var qtd = parseInt($("#quantidadeAlunos"+antigaTabela).val());
-					$("#quantidadeAlunos"+antigaTabela).val(qtd-1);
-					$("#personalNome"+antigaTabela).attr("placeholder", "Personal("+  $("#quantidadeAlunos"+antigaTabela).val() +")");
-					$("#menu"+antigaTabela).html("Personal("+  $("#quantidadeAlunos"+antigaTabela).val() +")");						
-				}
+					}else{
+						var qtd = parseInt($("#quantidadeAlunos"+antigaTabela).val());
+						$("#quantidadeAlunos"+antigaTabela).val(qtd-1);
+						$("#personalNome"+antigaTabela).attr("placeholder", "Personal("+  $("#quantidadeAlunos"+antigaTabela).val() +")");
+						$("#menu"+antigaTabela).html("Personal("+  $("#quantidadeAlunos"+antigaTabela).val() +")");						
+					}
 
-				if($("#personalNome"+tabela).val() != ""){
-					var qtd = parseInt($("#quantidadeAlunos"+tabela).val());
-					$("#quantidadeAlunos"+tabela).val(qtd+1);
-					val = $("#personalNome"+tabela).val().split("(");
-					$("#personalNome"+tabela).val(val[0] + "(" + $("#quantidadeAlunos"+tabela).val() + ")");
+					if($("#personalNome"+tabela).val() != ""){
+						var qtd = parseInt($("#quantidadeAlunos"+tabela).val());
+						$("#quantidadeAlunos"+tabela).val(qtd+1);
+						val = $("#personalNome"+tabela).val().split("(");
+						$("#personalNome"+tabela).val(val[0] + "(" + $("#quantidadeAlunos"+tabela).val() + ")");
 
-					nomeInstrutor = $("#menu"+tabela).html().split("(");
-					nomeInstrutor = nomeInstrutor[0];
-					nomeInstrutor = nomeInstrutor + "(" + $("#quantidadeAlunos"+ tabela).val() +")";
-					$("#menu"+tabela).html(nomeInstrutor);	
+						nomeInstrutor = $("#menu"+tabela).html().split("(");
+						nomeInstrutor = nomeInstrutor[0];
+						nomeInstrutor = nomeInstrutor + "(" + $("#quantidadeAlunos"+ tabela).val() +")";
+						$("#menu"+tabela).html(nomeInstrutor);	
 
-				}else{
-					var qtd = parseInt($("#quantidadeAlunos"+tabela).val());
-					$("#quantidadeAlunos"+tabela).val(qtd+1);
-					$("#personalNome"+tabela).attr("placeholder", "Personal("+  $("#quantidadeAlunos"+tabela).val() +")");
-					$("#menu"+tabela).html("Personal("+  $("#quantidadeAlunos"+tabela).val() +")");						
-				}			
-				abilitaTroca(antigaTabela);
-				abilitaTroca(tabela);	  
-			});  
+					}else{
+						var qtd = parseInt($("#quantidadeAlunos"+tabela).val());
+						$("#quantidadeAlunos"+tabela).val(qtd+1);
+						$("#personalNome"+tabela).attr("placeholder", "Personal("+  $("#quantidadeAlunos"+tabela).val() +")");
+						$("#menu"+tabela).html("Personal("+  $("#quantidadeAlunos"+tabela).val() +")");						
+					}			
+					abilitaTroca(antigaTabela);
+					abilitaTroca(tabela);	  
+				});  
+			}
 	});
 
 	$("#adicionar").click(function(){
@@ -332,7 +349,9 @@ function alteraTopo(idTabela){
 			digitado = digitado[0];
 			digitado = digitado.length;	
 			digitado;
-			$("#personalNome"+idTabela).selectRange(digitado); */
+			$("#personalNome"+idTabela).selectRange(digitado);  
+		*/
+
 		$("#personalNome"+idTabela).val($("#personalNome"+idTabela).val().replace(/\(/g,"").replace(/\)/g,""));
 		$("#menu"+idTabela).html($("#personalNome"+idTabela).val().substr(0,8).replace(/\(/g,"").replace(/\)/g,"") + "(" + $("#quantidadeAlunos"+idTabela).val() + ")");
 	}
@@ -363,6 +382,8 @@ function tiraCursor(id){
 }
 
 function modal(tabela){
+		$("#alertaNome").hide();
+		$("#alertaInstrutor").hide();
 	var table = $('#tabela'+tabela);
 	$("#modalTabela").val(tabela);
 

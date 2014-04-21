@@ -95,7 +95,7 @@
 						 	</tr>
 						 	
 							 	<tr class="vazio" id="linha1">
-							 			<td><input class="aluno" id="nome1" placeholder="nome" data-placement="top" data-trigger="manual" data-title="<div style='text-align: center; color: #d9534f;'><strong >Campo obrigatório</strong></div>"data-content="Insira o nome do aluno." onkeyup="enterCampos(1, 1)"/></td>
+							 			<td><input class="aluno" id="nome1" placeholder="nome" data-placement="top" data-trigger="manual" data-title="<div style='text-align: center; color: #d9534f;'><strong >Campo obrigatório</strong></div>" data-content="Insira o nome do aluno." onkeyup="enterCampos(1, 1)"/></td>
 							 			<input id="inicio1" disabled="disabled" style="Display:none";/>
 							 			<td class="mostrarHora" id="MostrarInicio1" style="vertical-align: middle;"></td>
 							 			<td class="mostrarHora" id="MostrarFim1" style="vertical-align: middle;"><input id="fim1" disabled="disabled"style="Display:none;"/></td>
@@ -128,19 +128,16 @@
       <div class="modal-body">
       	<input id="modalTabela" style="Display:none"/>
       <strong>Aluno</strong>	
-		<select class="form-control" id="selecionarAluno">
-
-		</select>
+		<select class="form-control" id="selecionarAluno"></select>
+        <div class="alert alert-danger" id="alertaNome" style="margin-top:5px; text-align:center; display:none; margin-bottom:0px;"><strong>Escolha o Aluno!</strong></div>
 	</br>
 	  <strong>Novo Instrutor</strong>
-		<select class="form-control" id="selecionarInstrutor">
-
-		</select>
-
-      </div>
+		<select class="form-control" id="selecionarInstrutor"></select>
+        <div class="alert alert-danger" id="alertaInstrutor" style="margin-top:5px; text-align:center; display:none; margin-bottom:0px;"><strong>Escolha o Instrutor!</strong></div>
+      </div>      
       <div class="modal-footer">
-      	<button type="button" class="btn btn-primary" id="mudarInstrutor">Salvar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>        
+        <button type="button" class="btn btn-primary" id="mudarInstrutor">Salvar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>  
       </div>
     </div>
   </div>
