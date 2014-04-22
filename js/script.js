@@ -1,15 +1,18 @@
 var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
-
+ 
+ //window.onbeforeunload=teste;
 document.addEventListener("backbutton", onBackKeyDown, false);
-
-function onBackKeyDown() {
-    // Handle the back button
+function onBackKeyDown(e) {
+  e.preventDefault();
 }
 
 $(document).ready(function(){ 
 
+	//$(window).bind('beforeunload', function() {
+    //     return false;
+    //});
 	//$("#nome1").tooltip();
 	$("#inicial").fadeIn();
 	  setTimeout(function(){
@@ -160,6 +163,10 @@ $(document).ready(function(){
 		}	
 	});
 });
+
+function teste(){
+ 	alert("teste");
+ }
 
 function confirma(id, primeiro, handler, tabelaId){
 	if($("#btnIniciar"+id).css('display') == "none"){
