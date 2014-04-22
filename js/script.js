@@ -8,25 +8,6 @@ document.addEventListener('deviceready', function() {
 
 }, false);
 
- function ShowExitDialog() {
-        navigator.notification.confirm(
-                ("Do you want to Exit?"), // message
-                alertexit, // callback
-                'My APp', // title
-                'YES,NO' // buttonName
-        );
-
-    }
-
-    function alertexit(button){
-
-        if(button=="1" || button==1)
-        {
-
-            device.exitApp();
-        }
-
-}
 
 $(document).ready(function(){ 
 
