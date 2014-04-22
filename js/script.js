@@ -1,6 +1,13 @@
 var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
+
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() {
+    // Handle the back button
+}
+
 $(document).ready(function(){ 
 
 	//$("#nome1").tooltip();
