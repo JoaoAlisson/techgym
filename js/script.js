@@ -14,6 +14,7 @@ $(document).ready(function(){
     //     return false;
     //});
 	//$("#nome1").tooltip();
+	$("#inicial").hide();
 	$("#inicial").fadeIn();
 	  setTimeout(function(){
 		 	//alert("teste");
