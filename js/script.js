@@ -2,6 +2,16 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
  
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Now safe to use device APIs
+    }
+
 $(document).ready(function(){ 
 
 	$(window).bind('beforeunload', function(){
