@@ -8,6 +8,25 @@ document.addEventListener('deviceready', function() {
 
 }, false);
 
+ function ShowExitDialog() {
+        navigator.notification.confirm(
+                ("Realmente deseja sair do programa?"), // message
+                alertexit, // callback
+                'techgym', // title
+                'Sim,Não' // buttonName
+        );
+
+    }
+
+    function alertexit(button){
+
+        if(button=="1" || button==1)
+        {
+        	alert("teste");
+            //device.exitApp();
+        }
+
+}
 
 $(document).ready(function(){ 
 
