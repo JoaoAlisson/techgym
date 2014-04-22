@@ -2,10 +2,30 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
  
-document.addEventListener("backbutton", onBackKeyDown, false);
+document.addEventListener('deviceready', function() {
 
-function onBackKeyDown() {
-	return "cuidad";
+    document.addEventListener("backbutton", ShowExitDialog, false);
+
+}, false);
+
+ function ShowExitDialog() {
+        navigator.notification.confirm(
+                ("Do you want to Exit?"), // message
+                alertexit, // callback
+                'My APp', // title
+                'YES,NO' // buttonName
+        );
+
+    }
+
+    function alertexit(button){
+
+        if(button=="1" || button==1)
+        {
+
+            device.exitApp();
+        }
+
 }
 
 $(document).ready(function(){ 
