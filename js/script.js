@@ -4,7 +4,7 @@ var contFinalizados = 1;
  
 $(document).ready(function(){ 
 
-	$(window).on('beforeunload', function(){
+	$(window).bind('beforeunload', function(){
 		return 'Ao sair do programa todos os dados são perdidos';
 	});
 
