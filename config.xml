@@ -20,16 +20,16 @@
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
     -->
-    <preference name="fullscreen" value="true" />
     <feature name="http://api.phonegap.com/1.0/device" />
-    <icon src="icon.png" />
+
     <!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
     <preference name="permissions" value="none"/>
-
+    <preference name="android-launchMode" value="singleInstance" />
+    <activity></activity>
   
-    <!--  <access origin="http://127.0.0.1*"/> allow local pages -->
+    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
 </widget>
