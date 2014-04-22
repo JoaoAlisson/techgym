@@ -2,17 +2,6 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
  
-function onDeviceReady() {
-        document.addEventListener("backbutton", backKeyDown, true);
-        //console.log("PhoneGap is ready");
-}
-
-function backKeyDown() {
-        //navigator.app.exitApp(); // To exit the app!
-        alert("ok");
- }
-
-
 $(document).ready(function(){ 
 
 	//$(window).on('beforeunload', function() {
@@ -169,6 +158,18 @@ $(document).ready(function(){
 		}	
 	});
 });
+
+function onBackKey() {
+
+    // We are going back to home so remove the event listener 
+    // so the default back key behaviour will take over
+    document.removeEventListener("backbutton", onBackKey, false);
+}
+
+function onLoad() {
+        //console.log("I've been loaded");
+        document.addEventListener("deviceready", onDeviceReady, false);
+}
 
 function confirma(id, primeiro, handler, tabelaId){
 	if($("#btnIniciar"+id).css('display') == "none"){
