@@ -4,9 +4,10 @@ var contFinalizados = 1;
  
 $(document).ready(function(){ 
 
-	$(window).on('beforeunload', function() {
-         return "Tem certeza que deseja sair do programa?";
-    });
+	$(window).on('beforeunload', function(){
+	  return 'Ao sair do programa todos os dados são perdidos';
+	});
+
 	//$("#nome1").tooltip();
 	$("#inicial").hide();
 	$("#inicial").fadeIn();
