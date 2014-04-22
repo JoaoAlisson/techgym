@@ -2,16 +2,21 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
  
- //window.onbeforeunload=teste;
-document.addEventListener("backbutton", onBackKeyDown, false);
-function onBackKeyDown(e) {
-  e.preventDefault();
+function onDeviceReady() {
+        document.addEventListener("backbutton", backKeyDown, true);
+        //console.log("PhoneGap is ready");
 }
+
+function backKeyDown() {
+        //navigator.app.exitApp(); // To exit the app!
+        alert("ok");
+ }
+
 
 $(document).ready(function(){ 
 
-	//$(window).bind('beforeunload', function() {
-    //     return false;
+	//$(window).on('beforeunload', function() {
+    //     return "Calma aew, tem certeza que deseja sair do app?";
     //});
 	//$("#nome1").tooltip();
 	$("#inicial").hide();
@@ -164,10 +169,6 @@ $(document).ready(function(){
 		}	
 	});
 });
-
-function teste(){
- 	alert("teste");
- }
 
 function confirma(id, primeiro, handler, tabelaId){
 	if($("#btnIniciar"+id).css('display') == "none"){
