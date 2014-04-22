@@ -2,21 +2,17 @@ var contLinha = 1;
 var contTabela = 1;
 var contFinalizados = 1;
  
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
+document.addEventListener("backbutton", onBackKeyDown, false);
 
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Now safe to use device APIs
-    }
+function onBackKeyDown() {
+	return "cuidad";
+}
 
 $(document).ready(function(){ 
 
-	$(window).bind('beforeunload', function(){
-		return 'Ao sair do programa todos os dados são perdidos';
-	});
+	//$(window).bind('beforeunload', function(){
+	//	return 'Ao sair do programa todos os dados são perdidos';
+	//});
 
 	//$("#nome1").tooltip();
 	$("#inicial").hide();
