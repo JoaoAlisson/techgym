@@ -5,7 +5,7 @@ var contFinalizados = 1;
 $(document).ready(function(){ 
 
 	$(window).on('beforeunload', function(){
-	  return 'Ao sair do programa todos os dados são perdidos';
+		return 'Ao sair do programa todos os dados são perdidos';
 	});
 
 	//$("#nome1").tooltip();
