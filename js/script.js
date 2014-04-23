@@ -193,7 +193,7 @@ function confirma(id, primeiro, handler, tabelaId){
 	if($("#btnIniciar"+id).css('display') == "none"){
 		var tr = $(handler).closest('tr');
 		$.confirm({
-		    text: "Deseja <strong style='color:#f81713;'>EXCLUIR</strong> o aluno <strong>"+$("#nome"+id).val()+"</strong>?",
+		    text: "Deseja <strong style='color:#f81713;'>EXCLUIR</strong> o aluno <strong>"+$("#nome"+id).val().toUpperCase()+"</strong>?",
 		    title: "Confirmação",
 		    confirm: function(button) {
 	     		
@@ -298,7 +298,7 @@ function inicio(id, tabela){
 function fim(id, tabela){
 
 	$.confirm({
-	    text: "Deseja <strong style='color:#3276b1;'>finalizar</strong> o treino do aluno <strong>"+$("#nome"+id).val()+"<strong>?",
+	    text: "Deseja <strong style='color:#3276b1;'>finalizar</strong> o treino do aluno <strong>"+$("#nome"+id).val().toUpperCase()+"<strong>?",
 	    title: "Confirmação",
 	    confirm: function(button) {   	
 
