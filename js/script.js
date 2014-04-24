@@ -25,7 +25,6 @@ document.addEventListener('deviceready', function() {
         	alert("teste");
             //device.exitApp();
         }
-
 }
 
 $(document).ready(function(){ 
@@ -201,6 +200,7 @@ function confirma(id, primeiro, handler, tabelaId){
 						tr.remove();
 						if($("#personalNome"+tabelaId).val() != ""){
 							var qtd = parseInt($("#quantidadeAlunos"+tabelaId).val());
+							if(qtd==0) qtd = 1;
 							$("#quantidadeAlunos"+tabelaId).val(qtd-1);
 							val = $("#personalNome"+tabelaId).val().split("(");
 							$("#personalNome"+tabelaId).val(val[0] + "(" + $("#quantidadeAlunos"+tabelaId).val() + ")");
@@ -212,6 +212,7 @@ function confirma(id, primeiro, handler, tabelaId){
 
 						}else{
 							var qtd = parseInt($("#quantidadeAlunos"+tabelaId).val());
+							if(qtd==0) qtd = 1;
 							$("#quantidadeAlunos"+tabelaId).val(qtd-1);
 							$("#personalNome"+tabelaId).attr("placeholder", "Personal("+  $("#quantidadeAlunos"+tabelaId).val() +")");
 							$("#menu"+tabelaId).html("Personal("+  $("#quantidadeAlunos"+tabelaId).val() +")");						
@@ -278,7 +279,7 @@ function inicio(id, tabela){
 							 			"</td>"+					 			
 							 	"</tr>";
 									 	
-		$("#tabela"+tabela).last().append(linha);
+		$("#tabela"+tabela+" tr:last").after(linha);
 
 		var row = $("#linha"+contLinha).closest('tr');
 	    row.insertBefore("#tabela"+ tabela +" .finalizados");
@@ -324,7 +325,8 @@ function fim(id, tabela){
 			minutosTotal = minutosTotal - minutoInicio + minutoFinal;
 
 			//alert(minutosTotal);
-
+			nome = $("#nome"+id).val();
+			Hinicial = $("#MostrarInicio"+id).html();
 			$("#btnFim"+id).attr("disabled","disabled");
 			if(minutosTotal > 70)
 				$("#linha"+id).attr("class", "danger finalizados");
@@ -332,8 +334,29 @@ function fim(id, tabela){
 				$("#linha"+id).attr("class","success finalizados");
 			$("#nome"+id).attr("disabled","disabled");
 			$.when($("#linha"+id).delay(800).fadeOut()).done( function() {
+
+			cont = 0;
+			var table = $('#tabela'+tabela);
+			table.find('tr').each(function(i){
+				cont++;
+			});
+			for(i=0; i < cont; i++){
 				var row = $("#linha"+id).closest('tr');
 			    row.insertAfter("#tabela"+ tabela +" tbody>tr:last");
+	    	}
+			if(minutosTotal > 70)
+				$("#linha"+id).attr("class", "danger finalizados");
+			else
+				$("#linha"+id).attr("class","success finalizados");
+
+			$("#MostrarInicio"+id).html(Hinicial);
+	    	$("#MostrarFim"+id).html(displayDate+"h");
+	    	$("#nome"+id).val(nome);
+	    	$("#btnIniciar"+id).hide();
+	    	$("#btnFim"+id).show();
+	    	$("#btnFim"+id).attr("disabled","disabled");
+			$("#nome"+id).attr("disabled","disabled");
+
 			    $("#linha"+id).fadeIn();
 			});	       	
 
@@ -435,7 +458,7 @@ function modal(tabela){
 	});
 
 	instrutores = "<option value=\"\" disabled=\"disabled\" selected=\"selected\">Selecione o Instrutor</option>";
-	
+
 	for(cont=1; cont <= contTabela; cont++){
 		if(cont != tabela){
 			if($("#personalNome"+cont).val() == "")
