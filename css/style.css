@@ -1,3 +1,21 @@
+.personalTabela{
+	background-color: #ecf0f1;
+	border-color:  #ecf0f1;
+	border-style: solid;
+	border-width:4px;
+	border-radius:15px;
+	margin-bottom: 20px;
+}
+
+.table{
+	background-color: #ecf0f1;
+}
+
+.addtabela{
+	padding: 0px;
+	background-color: #ecf0f1;
+}
+
 .table>tbody>tr>td.danger, .table>tbody>tr>th.danger, .table>tbody>tr.danger>td, .table>tbody>tr.danger>th{
 	background-color: #f89290;
 	color: #ac2825;

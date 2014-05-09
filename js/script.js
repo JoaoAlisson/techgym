@@ -142,7 +142,7 @@ $(document).ready(function(){
 		contLinha ++;
 		contTabela++;
 
-		var tabela =  "<div class=\"row todaTabela"+ contTabela + "\" style=\"Display:none; margin-bottom:0px;\">" +
+		var tabela =  "<div class=\"personalTabela\"><div class=\"row rowPersonal todaTabela"+ contTabela + "\" style=\"Display:none; margin-bottom:0px;\">" +
 							"<div class=\"col-xs-10 col-sm-4 col-md-3\">" +
 								"<h3 class=\"personal\"><input class=\"inputPersonal\" placeholder=\"Personal(0)\" id=\"personalNome"+ contTabela +"\" onkeyup=\"alteraTopo("+ contTabela +")\" onfocusin=\"colocaCursor("+ contTabela +")\" onfocusout=\"tiraCursor("+ contTabela +")\"/></h3>" +
 	              	 		"</div>" +
@@ -151,7 +151,7 @@ $(document).ready(function(){
 							"</div>" +
 	              	  "</div>" +
 	              	  "<input id=\"quantidadeAlunos" + contTabela  +"\" style=\"Display:none\" value=\"0\"/>" + 
-	              	"<div  class=\"panel\">" +
+	              	"<div  class=\"addtabela \">" +
 					"<div class=\"panel panel-default\ todaTabela"+ contTabela + "\" style=\"Display:none;\">" +
 							"<table class=\"table table-hover table-bordered\" id=\"tabela"+contTabela+"\">" +
 						 	"<tr>"+
@@ -173,7 +173,7 @@ $(document).ready(function(){
 						 	"</tr>"	+
 						"</table>" +
 					  "</div>"+
-					"</div>";
+					"</div></div>";
 		$("#tabelas").append(tabela);
 		$('html, body').animate({scrollTop: '+=230px'}, 800);
 		$(".todaTabela"+contTabela).fadeIn();
