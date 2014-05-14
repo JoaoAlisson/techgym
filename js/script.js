@@ -142,7 +142,7 @@ $(document).ready(function(){
 		contLinha ++;
 		contTabela++;
 
-		var tabela =  "<div class=\"row todaTabela"+ contTabela + "\" style=\"Display:none; margin-bottom:0px;\">" +
+		var tabela =  "<div class=\"personalTabela\"><div class=\"row todaTabela"+ contTabela + "\" style=\"Display:none; margin-bottom:0px;\">" +
 							"<div class=\"col-xs-10 col-sm-4 col-md-3\">" +
 								"<h3 class=\"personal\"><input class=\"inputPersonal\" placeholder=\"Personal(0)\" id=\"personalNome"+ contTabela +"\" onkeyup=\"alteraTopo("+ contTabela +")\" onfocusin=\"colocaCursor("+ contTabela +")\" onfocusout=\"tiraCursor("+ contTabela +")\"/></h3>" +
 	              	 		"</div>" +
@@ -151,14 +151,13 @@ $(document).ready(function(){
 							"</div>" +
 	              	  "</div>" +
 	              	  "<input id=\"quantidadeAlunos" + contTabela  +"\" style=\"Display:none\" value=\"0\"/>" + 
-	              	"<div  class=\"panel\">" +
-					"<div class=\"panel panel-default\ todaTabela"+ contTabela + "\" style=\"Display:none;\">" +
+	              	"<div  class=\"panel panel-default\">" +
 							"<table class=\"table table-hover table-bordered\" id=\"tabela"+contTabela+"\">" +
 						 	"<tr>"+
 						 			"<th>Nome do Aluno</th>"+
 						 			"<th>Início</th>"+
 						 			"<th>Fim</th>"+
-						 			"<th class='ultimaCelula'>Ação</th>"+
+						 			"<th class=\"ultimaCelula\">Ação</th>"+
 						 	"</tr>"+
 						 	"<tr class=\"vazio\" id=\"linha"+ contLinha +"\">"+
 						 			"<td><input class=\"aluno\" id=\"nome"+ contLinha +"\" placeholder=\"nome\"  onkeyup=\"enterCampos(" + contLinha + ", " + contTabela + ")\" "+
