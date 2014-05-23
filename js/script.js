@@ -327,7 +327,7 @@ function fim(id, tabela){
 			nome = $("#nome"+id).val();
 			Hinicial = $("#MostrarInicio"+id).html();
 			$("#btnFim"+id).attr("disabled","disabled");
-			if(minutosTotal > 0)
+			if(minutosTotal > 70)
 				$("#linha"+id).attr("class", "danger finalizados");
 			else
 				$("#linha"+id).attr("class","success finalizados");
@@ -343,7 +343,7 @@ function fim(id, tabela){
 				var row = $("#linha"+id).closest('tr');
 			    row.insertAfter("#tabela"+ tabela +" tbody>tr:last");
 	    	}
-			if(minutosTotal > 0)
+			if(minutosTotal > 70)
 				$("#linha"+id).attr("class", "danger finalizados");
 			else
 				$("#linha"+id).attr("class","success finalizados");
